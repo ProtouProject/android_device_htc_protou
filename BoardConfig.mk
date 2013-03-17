@@ -54,18 +54,23 @@ TARGET_PROVIDES_LIBAUDIO := true
 #mmcblk0p28: 014bfe00 00000200 "devlog"
 #mmcblk0p29: 00040000 00000200 "pdata"
 
+TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 4194304
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8909824
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1004535296
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1291845120
 BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_VOLD_MAX_PARTITIONS := 36
 
 # Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/f_mass_storage/lun0/file"
-BOARD_UMS_LUNFILE := "/sys/class/android_usb/f_mass_storage/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun0/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun1/file
+TARGET_RECOVERY_INITRC := device/htc/protou/recovery/init.recovery.rc
+BOARD_HAS_LARGE_FILESYSTEM := true
 
 TARGET_SPECIFIC_HEADER_PATH := device/htc/protou/include
 
@@ -123,6 +128,19 @@ COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=65
 
 # Touch screen compatibility for ICS
 BOARD_USE_LEGACY_TOUCHSCREEN := true
+
+#TWRP
+# Flags
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
+DEVICE_RESOLUTION := 480x800
+TW_INCLUDE_DUMLOCK := true
+TW_INTERNAL_STORAGE_PATH := "/emmc"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_DEFAULT_EXTERNAL_STORAGE := true
 
 # inherit from the proprietary version
 -include vendor/htc/protou/BoardConfigVendor.mk
