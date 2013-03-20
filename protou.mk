@@ -117,24 +117,12 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.camera=pico \
-    debug.camcorder.disablemeta=1 \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
     ro.com.google.gmsversion=2.3_r6 \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
-    dalvik.vm.dexopt-flags=m=y \
-    ro.telephony.call_ring.multiple=false \
-    ro.vold.umsdirtyratio=20
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.enable-player=true \
-    media.stagefright.enable-meta=false \
-    media.stagefright.enable-scan=false \
-    media.stagefright.enable-http=true \
-    media.stagefright.enable-aac=true \
-    media.stagefright.enable-qcp=true
+    dalvik.vm.dexopt-flags=m=y 
 
 PRODUCT_NAME := protou
 PRODUCT_DEVICE := protou
