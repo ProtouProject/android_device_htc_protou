@@ -89,6 +89,7 @@ PRODUCT_PACKAGES += \
 #Ramdisk
 PRODUCT_COPY_FILES += \
     device/htc/protou/prebuilt/init:root/init \
+    device/htc/protou/prebuilt/init.rc:root/init.rc \
     device/htc/protou/prebuilt/init.protou.rc:root/init.protou.rc \
     device/htc/protou/prebuilt/init.protou.usb.rc:root/init.protou.usb.rc \
     device/htc/protou/prebuilt/ueventd.protou.rc:root/ueventd.protou.rc \
