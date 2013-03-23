@@ -45,11 +45,7 @@ PRODUCT_PACKAGES += \
     dexpreopt \
     lights.msm7x27a \
     sensors.msm7x27a \
-    gps.default
-    
-# Camera
-PRODUCT_PACKAGES += \
-    camera.default    
+    gps.default 
     
 # Misc
 PRODUCT_PACKAGES += \
@@ -86,7 +82,21 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     librs_jni
 
-#Ramdisk
+# Keylayout, keychars and idc
+PRODUCT_COPY_FILES += \
+    device/htc/protou/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    device/htc/protou/prebuilt/usr/keylayout/protou-keypad.kl:system/usr/keylayout/protou-keypad.kl \
+    device/htc/protou/prebuilt/usr/keylayout/projector-Keypad.kl:system/usr/keylayout/projector-Keypad.kl \
+    device/htc/protou/prebuilt/usr/keylayout/himax-touchscreen.kl:system/usr/keylayout/himax-touchscreen.kl \
+    device/htc/protou/prebuilt/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
+    device/htc/protou/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    device/htc/protou/prebuilt/usr/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm \
+    device/htc/protou/prebuilt/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
+    device/htc/protou/prebuilt/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
+    device/htc/protou/prebuilt/usr/idc/projector_input.idc:system/usr/idc/projector_input.idc \
+    device/htc/protou/prebuilt/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc
+
+# Ramdisk
 PRODUCT_COPY_FILES += \
     device/htc/protou/prebuilt/init:root/init \
     device/htc/protou/prebuilt/init.rc:root/init.rc \
@@ -98,6 +108,14 @@ PRODUCT_COPY_FILES += \
 # Vold 
 PRODUCT_COPY_FILES += \
     device/htc/protou/prebuilt/etc/vold.fstab:system/etc/vold.fstab 
+
+# Camera
+PRODUCT_COPY_FILES += \
+    device/htc/protou/prebuilt/lib/hw/camera.default.so:system/lib/hw/camera.default.so
+
+# media_profiles
+PRODUCT_COPY_FILES += \
+    device/htc/protou/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -123,13 +141,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=m=y 
-
-PRODUCT_NAME := protou
-PRODUCT_DEVICE := protou
-PRODUCT_MODEL := HTC Desire X
-PRODUCT_BRAND := htc_europe
    
-# Inherit mdpi  
+# Inherit hdpi  
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_TAGS += dalvik.gc.type-precise

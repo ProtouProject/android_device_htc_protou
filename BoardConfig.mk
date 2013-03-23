@@ -37,6 +37,7 @@ COMMON_GLOBAL_CFLAGS += -DHTCLOG
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/htc/protou
@@ -60,10 +61,16 @@ TARGET_PROVIDES_LIBAUDIO := true
 #mmcblk0p28: 014bfe00 00000200 "devlog"
 #mmcblk0p29: 00040000 00000200 "pdata"
 
+TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 4194304
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1004535296
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1291845120
 BOARD_FLASH_BLOCK_SIZE := 131072
+
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
+BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk0p31
+BOARD_USES_MMCUTILS := true
 
 # Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
@@ -87,11 +94,11 @@ BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
 BOARD_WLAN_DEVICE := bcm4330
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4330.ko"
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4330b2.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4330b2_apsta.bin"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcmdhd.ko"
+WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4330_b2.bin"
+WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4330_b2_apsta.bin"
 WIFI_DRIVER_MODULE_NAME := "bcm4330"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4330b2.bin nvram_path=/proc/calibration iface_name=eth0"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=wlan"
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
@@ -113,9 +120,6 @@ WITH_JIT := true
 ENABLE_JSC_JIT := true
 JS_ENGINE := v8
 HTTP := chrome
-
-# ICS Stuff
-BOARD_HAS_NO_SELECT_BUTTON := true
 
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
