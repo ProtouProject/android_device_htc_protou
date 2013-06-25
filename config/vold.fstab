@@ -1,0 +1,5 @@
+## Vold 2.0 fstab for HTC Desire X
+
+# Mounts the first usable partition of the specified device
+dev_mount sdcard /storage/sdcard0 auto /devices/platform/msm_sdcc.1/mmc_host
+dev_mount emmc /storage/sdcard1 19 /devices/platform/msm_sdcc.3/mmc_host
