@@ -39,6 +39,9 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOOTLOADER_BOARD_NAME := protou
 TARGET_CORTEX_CACHE_LINE_32 := true
 
+# Releasetools
+TARGET_OTA_EXTRAS_FILE := device/htc/protou/extras.txt
+
 # Target information
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
