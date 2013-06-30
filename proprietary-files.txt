@@ -1,4 +1,3 @@
-bin/htc_ebdlogd
 bin/mm-qcamera-app
 bin/awb_camera
 bin/mm-vdec-omx-test
@@ -36,8 +35,6 @@ etc/calibration
 etc/firmware/fw_bcm4330_p2p_b2.bin
 etc/firmware/fw_bcm4330_b2.bin
 etc/firmware/yamato_pfp.fw
-etc/firmware/leia_pfp_470.fw
-etc/firmware/leia_pm4_470.fw
 etc/firmware/fw_bcm4330_apsta_b2.bin
 etc/firmware/BCM4330B1_002.001.003.0833.0845.hcd
 etc/firmware/yamato_pm4.fw
@@ -73,7 +70,6 @@ lib/libchromatix_imx091_video_hd.so
 lib/libchromatix_s5k6a2ya_preview.so
 lib/libchromatix_vd6869_hdr.so
 lib/libOmxH264Dec.so
-lib/libC2D2.so
 lib/libchromatix_s5k6a2ya_hfr.so
 lib/libchromatix_ov5693_default_video.so
 lib/libchromatix_s5k6a2ya_default_video.so
@@ -100,7 +96,6 @@ lib/libsc-a2xx.so
 lib/libhtc_acoustic.so
 lib/libhtccamera.so
 lib/egl/libEGL_adreno200.so
-lib/egl/libGLESv2S3D_adreno200.so
 lib/egl/eglsubAndroid.so
 lib/egl/libq3dtools_adreno200.so
 lib/egl/libGLESv1_CM_adreno200.so
@@ -132,10 +127,7 @@ lib/libchromatix_imx074_zsl.so
 lib/libmm-abl.so
 lib/libchromatix_ov2720_default_video.so
 lib/libchromatix_imx175_preview.so
-lib/hw/sensors.default.so
-lib/hw/camera.default.so
 lib/libmmcamera_statsproc31.so
-lib/libc2d2_z180.so
 lib/libchromatix_ar0260_preview.so
 lib/libchromatix_s5k4e5yx_preview.so
 lib/libchromatix_s5k3l1yx_video_hd.so
