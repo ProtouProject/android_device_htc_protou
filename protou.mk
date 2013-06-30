@@ -22,6 +22,17 @@ $(call inherit-product-if-exists, vendor/htc/protou/protou-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/protou/overlay
 
+# HTC blobs for recovery
+
+PRODUCT_COPY_FILES += \
+    device/htc/protou/recovery/init.protou.rc:recovery/root/init.protou.rc \
+    device/htc/protou/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
+    device/htc/protou/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
+    device/htc/protou/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
+    device/htc/protou/recovery/sbin/power_test:recovery/root/sbin/power_test \
+    device/htc/protou/recovery/sbin/rmt_storage:recovery/root/sbin/rmt_storage \
+    device/htc/protou/recovery/sbin/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
+
 # Video decoding
 PRODUCT_PACKAGES += \
     libmm-omxcore \
