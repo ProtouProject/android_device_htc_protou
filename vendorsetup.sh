@@ -1,1 +1,1 @@
-add_lunch_combo cm_protou-eng
+add_lunch_combo cm_protou-userdebug
