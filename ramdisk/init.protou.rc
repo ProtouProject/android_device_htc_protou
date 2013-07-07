@@ -1,4 +1,4 @@
-import /init.protou.usb.rc
+import init.protou.usb.rc
 
 on emmc
 
