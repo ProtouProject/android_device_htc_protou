@@ -58,7 +58,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.default \
     libsurfaceflinger_client
-    
+
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
@@ -84,12 +84,58 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/htc/protou/config/init:root/init \
-    device/htc/protou/config/init.rc:root/init.rc \
-    device/htc/protou/config/init.protou.rc:root/init.protou.rc \
-    device/htc/protou/config/init.protou.usb.rc:root/init.protou.usb.rc \
-    device/htc/protou/config/ueventd.rc:root/ueventd.rc \
-    device/htc/protou/config/ueventd.protou.rc:root/ueventd.protou.rc
+    device/htc/protou/ramdisk/init:root/init \
+    device/htc/protou/ramdisk/adbd:root/sbin/adbd \
+    device/htc/protou/ramdisk/init.rc:root/init.rc \
+    device/htc/protou/ramdisk/init.protou.rc:root/init.protou.rc \
+    device/htc/protou/ramdisk/init.protou.usb.rc:root/init.protou.usb.rc \
+    device/htc/protou/ramdisk/ueventd.rc:root/ueventd.rc \
+    device/htc/protou/ramdisk/ueventd.protou.rc:root/ueventd.protou.rc
+
+# Keychars & keylayout
+PRODUCT_COPY_FILES += \
+    device/htc/protou/prebuilt/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
+    device/htc/protou/prebuilt/usr/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \
+    device/htc/protou/prebuilt/usr/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm \
+    device/htc/protou/prebuilt/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
+    device/htc/protou/prebuilt/usr/keylayout/himax-touchscreen.kl:system/usr/keylayout/himax-touchscreen.kl \
+    device/htc/protou/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    device/htc/protou/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    device/htc/protou/prebuilt/usr/keylayout/sr_touchscreen.kl:system/usr/keylayout/sr_touchscreen.kl \
+    device/htc/protou/prebuilt/usr/keylayout/projector-Keypad.kl:system/usr/keylayout/projector-Keypad.kl \
+    device/htc/protou/prebuilt/usr/idc/projector_input.idc:system/usr/idc/projector_input.idc \
+    device/htc/protou/prebuilt/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc
+
+# Firmware
+PRODUCT_COPY_FILES += \
+    device/htc/protou/prebuilt/etc/firmware/fw_bcm4330_p2p_b2.bin:system/etc/firmware/fw_bcm4330_p2p_b2.bin \
+    device/htc/protou/prebuilt/etc/firmware/fw_bcm4330_b2.bin:system/etc/firmware/fw_bcm4330_b2.bin \
+    device/htc/protou/prebuilt/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    device/htc/protou/prebuilt/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    device/htc/protou/prebuilt/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+    device/htc/protou/prebuilt/etc/firmware/fw_bcm4330_apsta_b2.bin:system/etc/firmware/fw_bcm4330_apsta_b2.bin \
+    device/htc/protou/prebuilt/etc/firmware/BCM4330B1_002.001.003.0833.0845.hcd:system/etc/firmware/BCM4330B1_002.001.003.0833.0845.hcd \
+    device/htc/protou/prebuilt/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
+
+# Audio
+PRODUCT_COPY_FILES += \
+    device/htc/protou/prebuilt/etc/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \
+    device/htc/protou/prebuilt/etc/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
+    device/htc/protou/prebuilt/etc/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
+    device/htc/protou/prebuilt/etc/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
+    device/htc/protou/prebuilt/etc/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_trumedia_voice.cfg \
+    device/htc/protou/prebuilt/etc/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg \
+    device/htc/protou/prebuilt/etc/soundimage/srs_global.cfg:system/etc/soundimage/srs_global.cfg \
+    device/htc/protou/prebuilt/etc/soundimage/srs_bypass.cfg:system/etc/soundimage/srs_bypass.cfg \
+    device/htc/protou/prebuilt/etc/calibration:system/etc/calibration \
+    device/htc/protou/prebuilt/etc/AudioBTID.csv:system/etc/AudioBTID.csv \
+    device/htc/protou/prebuilt/etc/AudioPara4_WB.csv:system/etc/AudioPara4_WB.csv \
+    device/htc/protou/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/htc/protou/prebuilt/etc/AudioPara4.csv:system/etc/AudioPara4.csv \
+
+# Calibration
+PRODUCT_COPY_FILES += \
+    device/htc/protou/prebuilt/etc/calibration:system/etc/calibration
 
 # Media
 PRODUCT_COPY_FILES += \
