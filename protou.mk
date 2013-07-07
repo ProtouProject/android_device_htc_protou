@@ -64,6 +64,15 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     dexpreopt
 
+#Bluetooth
+PRODUCT_PACKAGES += \
+    brcm_patchram_plus
+
+#Bluetooth conf
+PRODUCT_COPY_FILES += \
+    system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf \
+    device/htc/protou/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf 
+
 # Hardware properties 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
