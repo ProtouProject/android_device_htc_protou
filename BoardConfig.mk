@@ -80,9 +80,14 @@ BOARD_VOLD_MAX_PARTITIONS := 24
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 
+#Recovery
+TARGET_RECOVERY_INITRC := device/htc/protou/recovery/init.recovery.rc
+BOARD_HAS_LARGE_FILESYSTEM := true
+DEVICE_RESOLUTION := 480x800
+
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
-BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun0/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun1/file
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
