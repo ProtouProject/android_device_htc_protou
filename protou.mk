@@ -84,11 +84,10 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/htc/protou/ramdisk/init:root/init \
     device/htc/protou/ramdisk/fstab.protou:root/fstab.protou \
-    device/htc/protou/ramdisk/init.target.rc:root/init.target.rc \
+    device/htc/protou/ramdisk/init.protou.rc:root/init.protou.rc \
     device/htc/protou/ramdisk/init.protou.usb.rc:root/init.protou.usb.rc \
-    device/htc/protou/ramdisk/ueventd.target.rc:root/ueventd.target.rc
+    device/htc/protou/ramdisk/ueventd.protou.rc:root/ueventd.protou.rc
 
 # Recovery
 PRODUCT_COPY_FILES += \

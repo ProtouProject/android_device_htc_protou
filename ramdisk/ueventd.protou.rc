@@ -1,3 +1,21 @@
+/dev/akm8975_aot          0640   compass    system
+/dev/akm8975_daemon       0640   compass    system
+/dev/bma150               0640   compass    system
+/dev/radio                0770   radio      radio
+/dev/radio_feedback       0660   radio      radio
+/dev/diag                 0660   radio      radio
+/dev/diag_mdm             0660   radio      radio
+/dev/htcdiag              0660   radio      radio
+/dev/diag_arm9            0660   radio      radio
+/dev/btdiag               0660   radio      radio
+/dev/htcdrm               0660   drm        system
+/dev/ttyHSUSB0            0666   system     system
+/dev/ttySA0               0666   system     system
+/dev/smd9                 0666   system     system
+/dev/ttyHSUSB1            0666   system     system
+/dev/simlock              0660   radio      radio
+
+
 /dev/rtc0                 0600   system     system
 
 # the genlock client device node is world writable/readable.
@@ -105,8 +123,4 @@
 /dev/tpa2051d3	          0660   system     audio
 # for modem link
 /sys/module/serial/parameters/modem_enabled    0600    system  system
-/dev/ttyHSUSB0                                 0600    system  system
-/dev/ttySA0                                    0600    system  system
-/dev/smd9                                      0600    system  system
-/dev/ttyHSUSB1                                 0600    system  system
 

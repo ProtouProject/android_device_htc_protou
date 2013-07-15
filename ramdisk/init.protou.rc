@@ -17,37 +17,14 @@ on init
     chown root root /devlog
     chmod 0700 /devlog
 
-    #set G-Sensor and Compass permissions
-    chown compass system /dev/akm8975_aot
-    chown compass system /dev/akm8975_daemon
-    chown compass system /dev/bma150
-    chmod 0640 /dev/akm8975_aot
-    chmod 0640 /dev/akm8975_daemon
-    chmod 0640 /dev/bma150
-
 # NETWORK: NAT setting
 # To prevent out of WINDOW ACK from making
 # connection tracking to treat them as INVALID packet
     write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
 
-on emmc-fs
-    mkdir /system
-    mkdir /data 0771 system system
-    mkdir /cache 0771 system cache
-    mkdir /devlog 0700 root root
-
-    devwait emmc@system
-    mount ext4 emmc@system /system ro barrier=1
-
-    devwait emmc@userdata
+on fs
+    # mount all mmc partitions
     mount_all /fstab.protou
-
-    devwait emmc@cache
-    mount ext4 emmc@cache /cache nosuid nodev barrier=1
-
-    devwait emmc@devlog
-    e2fsck emmc@devlog
-    mount ext4 emmc@devlog /devlog nosuid nodev barrier=1,errors=continue
 
 on post-fs-data
     # create basic filesystem structure
@@ -150,24 +127,8 @@ on boot
 #set keypad permissions
 	chown media media /sys/keyboard/vol_wakeup
 
-# HTC set radio_feedback permissions
-    chown radio radio /dev/radio_feedback
-    chmod 0660 /dev/radio_feedback
-
-#set diag permissions
-    chown radio radio /dev/diag
-    chown radio radio /dev/diag_mdm
-    chown radio radio /dev/htcdiag
-    chown radio radio /dev/diag_arm9
-    chown radio radio /dev/btdiag
-    chmod 0660 /dev/diag
-    chmod 0660 /dev/diag_mdm
-    chmod 0660 /dev/htcdiag
-    chmod 0660 /dev/diag_arm9
-    chmod 0660 /dev/btdiag
-
-	chown root system /proc/driver/hdf
-	chmod 0664 /proc/driver/hdf
+    chown root system /proc/driver/hdf
+    chmod 0664 /proc/driver/hdf
 
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -179,20 +140,10 @@ on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660                /sys/class/rfkill/rfkill0/state
 
-    # Widevine DRM
-	chown drm system /dev/htcdrm
-	chmod 0660 /dev/htcdrm
-
     # HTC SSD Audio
 	mkdir /data/audio
 	chown media audio /data/audio
 	chmod 755 /data/audio
-
-	# for wireless modem
-	chown system system /sys/module/serial/parameters/modem_enabled
-	chown system system /dev/ttyHSUSB0
-	chown system system /dev/ttySA0
-	chown system system /dev/smd9
 
 	# for Flip to speaker
 	chown radio radio /sys/class/htc_accelerometer/accelerometer/PhoneOnOffFlag
@@ -206,10 +157,6 @@ on boot
 	chown system system /sys/class/optical_sensors/proximity/ps_kadc
 	chown system system /sys/class/optical_sensors/proximity/ps_led
 	chown system system /sys/class/optical_sensors/proximity/ps_test_mode
-
-	# for simlock
-	chown radio radio /dev/simlock
-	chmod 0660 /dev/simlock
 
 	# for charging function
 	chown radio radio /sys/class/power_supply/battery/phone_call
