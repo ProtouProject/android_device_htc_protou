@@ -82,6 +82,10 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     librs_jni
 
+# Calibration
+PRODUCT_COPY_FILES += \
+    device/htc/protou/prebuilt/etc/calibration:system/etc/calibration
+
 # Keylayout, keychars and idc
 PRODUCT_COPY_FILES += \
     device/htc/protou/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
