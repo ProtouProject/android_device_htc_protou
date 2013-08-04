@@ -14,6 +14,6 @@
 
 LOCAL_PATH := $(my-dir)
 
-ifeq ($(TARGET_DEVICE),pico)
+ifeq ($(TARGET_DEVICE),protou)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
