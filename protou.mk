@@ -104,7 +104,7 @@ PRODUCT_COPY_FILES += \
     system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf \
     device/htc/protou/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
- Ramdisk
+# Ramdisk
 PRODUCT_COPY_FILES += \
     device/htc/protou/ramdisk/init:root/init \
     device/htc/protou/ramdisk/fstab.protou:root/fstab.protou \
