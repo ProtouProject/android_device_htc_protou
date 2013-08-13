@@ -48,6 +48,16 @@ on emmc-fs
     devwait emmc@devlog
     e2fsck emmc@devlog
     mount ext4 emmc@devlog /devlog nosuid nodev barrier=1,errors=continue
+    
+    mkdir /storage 0050 system sdcard_r
+    mkdir /storage/sdcard0 0000 system system
+    mkdir /storage/emmc 0000 system system
+    export EXTERNAL_STORAGE /storage/sdcard0
+    rm /sdcard
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
+    mkdir /storage/usb 0000 system system
+    export PHONE_STORAGE /storage/emmc
 
 on post-fs-data
     # create basic filesystem structure
